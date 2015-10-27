@@ -12,3 +12,5 @@ class CafeItem(scrapy.Item):
     url = scrapy.Field()
     name = scrapy.Field()
     description = scrapy.Field()
+    image = scrapy.Field()
+    price = scrapy.Field()
