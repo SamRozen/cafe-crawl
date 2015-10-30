@@ -10,6 +10,7 @@ class SpiderTest(unittest.TestCase):
     description = ''
     image = ''
     price = ''
+    size = ''
 
     spider = None
 
@@ -19,6 +20,7 @@ class SpiderTest(unittest.TestCase):
         self.assertEqual(item['description'], self.description)
         self.assertEqual(item['image'], self.image)
         self.assertEqual(item['price'], self.price)
+        self.assertEqual(item['size'], self.size)
 
     def _test_parse(self):
         filename = 'data/%s.html' % self.spider_name

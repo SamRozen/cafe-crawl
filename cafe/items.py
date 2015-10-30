@@ -10,3 +10,4 @@ class CafeItem(scrapy.Item):
     description = scrapy.Field()
     image = scrapy.Field()
     price = scrapy.Field()
+    size = scrapy.Field()

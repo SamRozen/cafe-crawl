@@ -27,8 +27,14 @@ class ParlorSpider(CrawlSpider):
         i['brand'] = 'Parlor Coffee'
         i['name'] = clean_str(response.xpath(
             '//h2[@itemprop="name"]/text()').extract()[0])
-        i['description'] = list_to_clean_str(response.xpath(
-            '//span[@itemprop="description"]/p//text()').extract())
+        desc = list_to_clean_str(response.xpath(
+            '//span[@itemprop="description"]/p[1]//text()').extract())
+        if len(desc) == 0:
+            desc = list_to_clean_str(response.xpath(
+                '//span[@itemprop="description"]//div//text()').extract())
+        i['description'] = desc
+        i['size'] = list_to_clean_str(response.xpath(
+            '//span[@itemprop="description"]/p[2]//text()').extract())
         i['image'] = response.xpath(
             '//div[@class="image_about"]').extract()[0]
         i['price'] = clean_str(response.xpath(

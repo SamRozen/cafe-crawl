@@ -27,8 +27,11 @@ class CounterCultureSpider(CrawlSpider):
         i = CafeItem()
         i['url'] = response.url
         i['brand'] = 'Counter Culture'
-        i['name'] = clean_str(response.xpath(
+        name_size = clean_str(response.xpath(
             '//div[@class="product-name"]/h1/text()').extract()[0])
+        tokens = name_size.split(' - ')
+        i['name'] = tokens[0]
+        i['size'] = tokens[-1] if len(tokens) > 1 else ''
         i['description'] = list_to_clean_str(response.xpath(
             '//div[@id="accordion"]//text()').extract())
         i['image'] = response.xpath(
