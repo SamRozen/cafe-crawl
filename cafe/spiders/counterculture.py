@@ -26,6 +26,7 @@ class CounterCultureSpider(CrawlSpider):
         self.logger.debug('Parsing reponse from %s', response.url)
         i = CafeItem()
         i['url'] = response.url
+        i['brand'] = 'Counter Culture'
         i['name'] = clean_str(response.xpath(
             '//div[@class="product-name"]/h1/text()').extract()[0])
         i['description'] = list_to_clean_str(response.xpath(

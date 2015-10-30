@@ -24,6 +24,7 @@ class ParlorSpider(CrawlSpider):
     def parse_item(self, response):
         i = CafeItem()
         i['url'] = response.url
+        i['brand'] = 'Parlor Coffee'
         i['name'] = clean_str(response.xpath(
             '//h2[@itemprop="name"]/text()').extract()[0])
         i['description'] = list_to_clean_str(response.xpath(
