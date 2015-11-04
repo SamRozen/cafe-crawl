@@ -58,3 +58,6 @@ target/
 
 # Crawl output
 output/
+
+# Some Mac OS stuff
+.DS_Store

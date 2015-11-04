@@ -4,6 +4,7 @@ from cafe.spiders.parlor import ParlorSpider
 
 
 class ParlorSpiderTest(SpiderTest):
+    url = 'http://shop.parlorcoffee.com/collections/frontpage/products/kenya-ibutiti-peaberry'
     spider_name = 'parlor'
     name = 'Kenya Ibutiti Peaberry'
     size = '8 ounce bag. Whole bean.'

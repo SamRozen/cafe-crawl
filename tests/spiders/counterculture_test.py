@@ -3,7 +3,8 @@ from spider_test import SpiderTest
 from cafe.spiders.counterculture import CounterCultureSpider
 
 
-class ParlorSpiderTest(SpiderTest):
+class CouterCultureSpiderTest(SpiderTest):
+    url = 'https://counterculturecoffee.com/store/coffee/apollo'
     spider_name = 'counterculture'
     name = 'Apollo'
     size = '12 oz bag'

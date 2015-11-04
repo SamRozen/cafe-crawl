@@ -1,0 +1,20 @@
+#! /usr/bin/env bash
+
+TIMESTAMP=`date -u +%Y%m%d_%H%M%S`
+
+OUTDIR=output/$TIMESTAMP
+LOGDIR=logs/$TIMESTAMP
+echo "Output dir: $OUTDIR"
+mkdir -p $OUTDIR
+mkdir -p $LOGDIR
+
+SPIDERS=`scrapy list`
+for S in $SPIDERS
+do
+  CMD="scrapy crawl $S -L INFO -o $OUTDIR/$S.json >& $LOGDIR/$S.log"
+  echo $CMD
+  eval $CMD
+done
+cd output
+rm -f latest
+ln -s $TIMESTAMP latest
