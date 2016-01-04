@@ -32,7 +32,7 @@ class LaColombeSpider(CrawlSpider):
         i['description'] = list_to_clean_str(response.xpath(
             '//div[@itemprop="description"]//text()').extract())
         i['image'] = response.xpath(
-            '//div[@id="ProductPhoto"]/img').extract()[0]
+            '//div[@id="ProductPhoto"]/img/@src').extract()[0]
         i['price'] = clean_str(response.xpath(
             '//span[@id="ProductPrice"]/text()').extract()[0])
         return i

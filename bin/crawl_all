@@ -16,5 +16,9 @@ do
   eval $CMD
 done
 cd output
-rm -f latest
+if [ -h latest ]
+  then 
+    rm -f prev
+    mv latest prev
+fi
 ln -s $TIMESTAMP latest

@@ -35,7 +35,7 @@ class CounterCultureSpider(CrawlSpider):
         i['description'] = list_to_clean_str(response.xpath(
             '//div[@id="accordion"]//text()').extract())
         i['image'] = response.xpath(
-            '//p[@class="product-image"]/img').extract()[0]
+            '//p[@class="product-image"]/img/@src').extract()[0]
         i['price'] = clean_str(response.xpath(
             '//span[@class="price"]/text()').extract()[0])
         return i

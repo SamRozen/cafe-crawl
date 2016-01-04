@@ -36,7 +36,7 @@ class ParlorSpider(CrawlSpider):
         i['size'] = list_to_clean_str(response.xpath(
             '//span[@itemprop="description"]/p[2]//text()').extract())
         i['image'] = response.xpath(
-            '//div[@class="image_about"]').extract()[0]
+            '//div[@class="image_about"]/@style').extract()[0]
         i['price'] = clean_str(response.xpath(
             '//span[@class="single_product_price"]/text()').extract()[0])
         return i
